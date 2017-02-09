@@ -30,6 +30,7 @@ for a in os.listdir(os.getcwd()):
                         for d in os.listdir(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)):
                             if 'post' in d and 'bay' not in d:
                                 for e in os.listdir(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)+'/'+str(d)):
+                                    #Reconstruction strain data as a function of time for Hanford detector
                                     if 'signal_median_time_domain_waveform.dat.0' in e:
                                         raw_data_h=np.loadtxt(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)+'/'+str(d)+'/'+str(e))
                                         strainh_data.append(raw_data_h[:,1])
@@ -98,9 +99,11 @@ for a in os.listdir(os.getcwd()):
                                             elif 'snr_50' in b:
                                                 snrh_key.append(50)
                                                 inch_key.append(135)
+                                    #Injection strain data as a function of time for Hanford detector
                                     elif 'injected_whitened_waveform.dat.0' in e:
                                         raw_data_h=np.loadtxt(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)+'/'+str(d)+'/'+str(e))
                                         injectsh_data.append(raw_data_h)
+                                    #Reconstruction strain data as a function of time for Livingston detector
                                     elif 'signal_median_time_domain_waveform.dat.1' in e:
                                         raw_data_l=np.loadtxt(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)+'/'+str(d)+'/'+str(e))
                                         strainl_data.append(raw_data_l[:,1])
@@ -169,6 +172,7 @@ for a in os.listdir(os.getcwd()):
                                             elif 'snr_50' in b:
                                                 snrl_key.append(50)
                                                 incl_key.append(135)
+                                    #Injection strain data as a function of time for Livingston detector
                                     elif 'injected_whitened_waveform.dat.1' in e:
                                         raw_data_l=np.loadtxt(os.getcwd()+'/'+str(a)+'/'+str(b)+'/'+str(c)+'/'+str(d)+'/'+str(e))
                                         injectsl_data.append(raw_data_l)
